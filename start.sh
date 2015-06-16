@@ -41,5 +41,5 @@ sed -i -e 's/CustomLog.*$/ErrorLog \/var\/log\/httpd\/${HOSTNAME}_ssl_error.log/
 sed -i -e 's/CustomLog.*$/CustomLog \/var\/log\/httpd\/${HOSTNAME}_ssl_access.log combined/g' /etc/httpd/conf.d/puppetmaster.conf
 
 # Start Apache
-#echo "Starting Apache..."
-#apache2ctl -D FOREGROUND
+echo "Starting Apache..."
+/usr/sbin/httpd -DFOREGROUND
