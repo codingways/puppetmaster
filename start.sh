@@ -36,8 +36,9 @@ fi
 # Make Apache config hostname dynamic
 sed -i -e 's/SSLCertificateFile.*$/SSLCertificateFile      \/var\/lib\/puppet\/ssl\/certs\/${HOSTNAME}.pem/g' /etc/httpd/conf.d/puppetmaster.conf
 sed -i -e 's/SSLCertificateKeyFile.*$/SSLCertificateKeyFile   \/var\/lib\/puppet\/ssl\/private_keys\/${HOSTNAME}.pem/g' /etc/httpd/conf.d/puppetmaster.conf
-sed -i -e 's/ErrorLog.*$/ErrorLog \/var/log/httpd/${HOSTNAME}_ssl_error.log/g' /etc/httpd/conf.d/puppetmaster.conf
-sed -i -e 's/CustomLog.*$/CustomLog \/var/log/httpd/${HOSTNAME}_ssl_access.log combined/g' /etc/httpd/conf.d/puppetmaster.conf
+sed -i -e 's/ErrorLog.*$/ErrorLog \/var\/log\/httpd\/${HOSTNAME}_ssl_error.log/g' /etc/httpd/conf.d/puppetmaster.conf
+sed -i -e 's/CustomLog.*$/ErrorLog \/var\/log\/httpd\/${HOSTNAME}_ssl_error.log/g' /etc/httpd/conf.d/puppetmaster.conf
+sed -i -e 's/CustomLog.*$/CustomLog \/var\/log\/httpd\/${HOSTNAME}_ssl_access.log combined/g' /etc/httpd/conf.d/puppetmaster.conf
 
 # Start Apache
 #echo "Starting Apache..."
