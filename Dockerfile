@@ -6,16 +6,16 @@ MAINTAINER Martín González <mgonzalez@codingways.com>
 RUN rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
 
 #Install puppet-server
-RUN yum install puppet-server
+RUN yum -y install puppet-server
 
 #Install apache2 and rubygems
-RUN yum install httpd httpd-devel mod_ssl ruby-devel rubygems gcc
+RUN yum -y install httpd httpd-devel mod_ssl ruby-devel rubygems gcc
 
 #Install Rack/Passenger
 RUN gem install rack passenger
 
 #Install Passenger apache2 module dependencies
-RUN yum install gcc-c++ libcurl-devel openssl-devel zlib-devel
+RUN yum -y install gcc-c++ libcurl-devel openssl-devel zlib-devel
 
 #Install Passenger apache2 module
 RUN passenger-install-apache2-module -a --languages ruby
