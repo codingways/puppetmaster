@@ -43,7 +43,7 @@ ADD puppetmaster.conf /etc/httpd/conf.d/puppetmaster.conf
 ADD start.sh /start.sh
 
 #Link volumes to host
-VOLUME /var/lib/puppet /etc/puppet/modules /etc/puppet/manifests
+VOLUME /var/lib/puppet /etc/puppet
 
 #Map port to host
 EXPOSE 8140
